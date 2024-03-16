@@ -7,7 +7,7 @@ ACCESS_TOKEN = config.get('access_token')
 
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkcore.auth.credentials import AccessKeyCredential
-from aliyunsdkcas.request.v20180713.CreateUserCertificateRequest import CreateUserCertificateRequest
+# from aliyunsdkcas.request.v20180713.CreateUserCertificateRequest import CreateUserCertificateRequest
 from utils import random_str
 
 client = AcsClient(credential=AccessKeyCredential(ACCESS_KEY, ACCESS_TOKEN))

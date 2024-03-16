@@ -2,6 +2,7 @@ pyyaml
 requests
 
 aliyun-python-sdk-core
+aliyun-python-sdk-cas
 aliyun-python-sdk-cdn
 aliyun-python-sdk-live
 
