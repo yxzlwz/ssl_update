@@ -1,0 +1,29 @@
+ssl_path: "./ssl/"
+cert_file_name: "cert.pem"
+key_file_name: "key.pem"
+
+aliyun:
+  enable: true
+  enable_products:
+    - cdn
+    - live
+  access_key: "ALIYUN_ACCESS_KEY"
+  access_token: "ALIYUN_ACCESS_TOKEN"
+
+tencent:
+  enable: true
+  enable_products:
+    - cdn
+    - apigateway
+  secret_id: "TENCENT_SECRET_ID"
+  secret_key: "TENCENT_SECRET_KEY"
+  regions:
+    - ap-singapore
+    - ap-tokyo
+
+dogecloud:
+  enable: true
+  enable_products:
+    - cdn
+  access_key: "DOGECLOUD_ACCESS_KEY"
+  access_token: "DOGECLOUD_ACCESS_TOKEN"

@@ -1,0 +1,8 @@
+pyyaml
+requests
+
+aliyun-python-sdk-core
+aliyun-python-sdk-cdn
+aliyun-python-sdk-live
+
+tencentcloud-sdk-python
