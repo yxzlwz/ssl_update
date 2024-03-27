@@ -4,6 +4,7 @@ requests
 aliyun-python-sdk-core
 aliyun-python-sdk-cas
 aliyun-python-sdk-cdn
+aliyun-python-sdk-dcdn
 aliyun-python-sdk-live
 
 tencentcloud-sdk-python
