@@ -8,7 +8,8 @@ from aliyunsdkdcdn.request.v20180115.BatchSetDcdnDomainCertificateRequest import
 from aliyunsdkcdn.request.v20180510.DescribeUserDomainsRequest import DescribeUserDomainsRequest
 from aliyunsdkdcdn.request.v20180115.DescribeDcdnUserDomainsRequest import DescribeDcdnUserDomainsRequest
 
-def upadte_domains(cert_name):
+
+def upadte_domains(cert_name, uploaded):
     request = DescribeUserDomainsRequest()
     request.set_accept_format('json')
     request.set_PageSize(50)
@@ -30,11 +31,15 @@ def upadte_domains(cert_name):
         request.set_DomainName(','.join(_domains))
         request.set_accept_format('json')
         request.set_CertName(cert_name)
-        request.set_CertType("upload")
         request.set_SSLProtocol("on")
-        request.set_SSLPub(CERT_FULLCHAIN)
-        request.set_SSLPri(CERT_KEY)
         request.set_ForceSet("1")
+        if uploaded:
+            request.set_CertType("cas")
+        else:
+            request.set_CertType("upload")
+            request.set_SSLPub(CERT_FULLCHAIN)
+            request.set_SSLPri(CERT_KEY)
+            uploaded = True
         response = client.do_action_with_exception(request)
 
         domains = domains[10:]
@@ -62,14 +67,21 @@ def upadte_domains(cert_name):
         request.set_DomainName(','.join(_domains))
         request.set_accept_format('json')
         request.set_CertName(cert_name)
-        request.set_CertType("upload")
         request.set_SSLProtocol("on")
-        request.set_SSLPub(CERT_FULLCHAIN)
-        request.set_SSLPri(CERT_KEY)
+        if uploaded:
+            request.set_CertType("cas")
+        else:
+            request.set_CertType("upload")
+            request.set_SSLPub(CERT_FULLCHAIN)
+            request.set_SSLPri(CERT_KEY)
+            uploaded = True
         response = client.do_action_with_exception(request)
 
         domains = domains[10:]
 
+    return uploaded
 
-def main(cert_name):
-    upadte_domains(cert_name)
+
+def main(cert_name, uploaded):
+    uploaded = upadte_domains(cert_name, uploaded)
+    return uploaded

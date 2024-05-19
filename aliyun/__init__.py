@@ -12,7 +12,6 @@ from utils import random_str
 
 client = AcsClient(credential=AccessKeyCredential(ACCESS_KEY, ACCESS_TOKEN))
 
-
 # 由于阿里云的限制，我们暂时停用这一接口，具体情况请见 README.md
 # def upload(cert_name):
 #     request = CreateUserCertificateRequest()
@@ -25,12 +24,13 @@ client = AcsClient(credential=AccessKeyCredential(ACCESS_KEY, ACCESS_TOKEN))
 
 def main():
     cert_name = f'{DOMAIN}_{random_str(4)}'
+    uploaded = False
     # upload(cert_name)
 
     if 'cdn' in config['enabled_products']:
         import aliyun.cdn as cdn
-        cdn.main(cert_name)
+        uploaded = cdn.main(cert_name, uploaded)
 
     if 'live' in config['enabled_products']:
         import aliyun.live as live
-        live.main(cert_name)
+        uploaded = live.main(cert_name, uploaded)
