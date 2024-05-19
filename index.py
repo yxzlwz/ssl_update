@@ -25,10 +25,10 @@ if __name__ == '__main__':
         import aliyun
         aliyun.main()
 
-    # if CONFIG['dogecloud']['enabled']:
-    #     import dogecloud
-    #     dogecloud.main()
+    if CONFIG['dogecloud']['enabled']:
+        import dogecloud
+        dogecloud.main()
 
-    # if CONFIG['tencent']['enabled']:
-    #     import tencent
-    #     tencent.main()
+    if CONFIG['tencent']['enabled']:
+        import tencent
+        tencent.main()
