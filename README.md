@@ -60,3 +60,11 @@ python3 index.py yixiangzhilv.com
 ```
 
 其中`yixiangzhilv.com`是你的域名，**该参数必须添加**。
+
+要想在后续 acme.sh 自动更新域名证书时推送证书也自动生效的话，运行一次如下命令：
+
+```bash
+acme.sh --force --renew -d example.com --renew-hook "python3 /path/to/index.py example.com"
+```
+
+这样，就会立即强制更新证书并推送到云服务商，并且下次自动更新时也有效。
