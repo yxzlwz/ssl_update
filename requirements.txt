@@ -1,10 +1,9 @@
 pyyaml
 requests
 
-aliyun-python-sdk-core
-aliyun-python-sdk-cas
-aliyun-python-sdk-cdn
-aliyun-python-sdk-dcdn
-aliyun-python-sdk-live
+aliyun-python-sdk-core==2.16.0
+aliyun-python-sdk-cdn==3.8.8
+aliyun-python-sdk-dcdn==2.2.19
+aliyun-python-sdk-live==3.9.75
 
-tencentcloud-sdk-python
+tencentcloud-sdk-python==3.1.6

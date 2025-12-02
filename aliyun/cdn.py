@@ -51,7 +51,6 @@ def upadte_domains(cert_name, uploaded):
     request.set_DomainName(DOMAIN)
     response = client.do_action_with_exception(request)
     response_dict = json.loads(str(response, encoding='utf-8'))
-    # print(response_dict)
     certs = response_dict['Domains']['PageData']
     print('DCDN域名搜索结果', certs)
 
